@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "732165376379",
+    "project_id": "captureimageconverttext",
+    "storage_bucket": "captureimageconverttext.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732165376379:android:37d25753252e27065e95de",
+        "android_client_info": {
+          "package_name": "com.example.flutter_vision"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732165376379-1hr8df5hd8ppiaivm7pg7fmj84cevc85.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_vision",
+            "certificate_hash": "bcbda9735eefe875acbffa4c5bd2dc66a3c03e6c"
+          }
+        },
+        {
+          "client_id": "732165376379-dss2mngi7p68arfe9bkrvs8jpir82avl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_ZPVawiQQSFKhbTPLWGcqJobya50fTjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732165376379-dss2mngi7p68arfe9bkrvs8jpir82avl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
