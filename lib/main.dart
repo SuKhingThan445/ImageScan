@@ -18,6 +18,7 @@ Future<void> main() async {
   } on CameraException catch (e) {
     print(e);
   }
+
   runApp(MyApp());
 }
 

@@ -1,7 +1,10 @@
+import 'dart:math';
+
 import 'package:camera/camera.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vision/image_scanner/camera_screen.dart';
+import 'package:flutter_vision/models/grid_list_item.dart';
 
 import 'home_screen.dart';
 class BottomNavBar extends StatefulWidget {
@@ -17,6 +20,16 @@ class _BottomNavBarState extends State<BottomNavBar> {
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
   _BottomNavBarState(this.cameras);
+  List<GridListItems> items = [
+    GridListItems('Bicycle', Icons.add_to_drive),
+    GridListItems('Boat',  Icons.directions_boat),
+    GridListItems('Bus', Icons.directions_bus),
+    GridListItems('Train',  Icons.directions_railway),
+    GridListItems('Walk', Icons.directions_walk),
+    GridListItems('Contact',  Icons.contact_mail),
+    GridListItems('Bicycle',  Icons.directions_bike),
+
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -47,30 +60,44 @@ class _BottomNavBarState extends State<BottomNavBar> {
           },
           letIndexChange: (index) => true,
         ),
-        body: Container(
-          color: Colors.yellow,
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(_page.toString(), textScaleFactor: 10.0),
-                ElevatedButton(
-                  child: Text('Go To Page of index 1'),
-                  onPressed: () {
-                    // final CurvedNavigationBarState navBarState =
-                    //     _bottomNavigationKey.currentState;
-                    // navBarState.setState(() {
-                    //   Navigator.push(context, MaterialPageRoute(builder: (context) => CameraScreen(cameras)));
-                    // });
-                    // navBarState?.setPage(1);
-
-
-                  },
-                )
-              ],
-            ),
+        body: GridView.builder(
+          itemCount:items.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: MediaQuery.of(context).orientation ==
+                Orientation.landscape ? 3: 2,
+            crossAxisSpacing: 8,
+            mainAxisSpacing: 8,
+            childAspectRatio: (2 / 1),
           ),
-        ));
+          itemBuilder: (context,index,) {
+            return GestureDetector(
+              onTap:(){
+               // Navigator.of(context).pushNamed(RouteName.GridViewCustom);
+              },
+              child:Container(
+                color: RandomColorModel().getColor(),
+                child: Column(
+                  mainAxisAlignment:MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Icon(Icons.camera_alt),
+                     Text("items[index].title",style: TextStyle(fontSize: 18, color: Colors.black),
+                         textAlign: TextAlign.center),
+                  ],
+                ),
+              ),
+            );
+          },
+        )
 
+
+        );
+
+  }
+}
+class RandomColorModel {
+  Random random = Random();
+  Color getColor() {
+    return Color.fromARGB(random.nextInt(300), random.nextInt(300),
+        random.nextInt(300), random.nextInt(300));
   }
 }
