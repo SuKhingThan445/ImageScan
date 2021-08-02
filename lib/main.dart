@@ -7,7 +7,9 @@ import 'package:flutter_vision/splash_screen/splash_screen.dart';
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'database.dart';
 import 'image_scanner/camera_screen.dart';
+import 'models/person.dart';
 
 List<CameraDescription> cameras = [];
 
@@ -18,7 +20,14 @@ Future<void> main() async {
   } on CameraException catch (e) {
     print(e);
   }
+  final database = await $FloorAppDatabase.databaseBuilder('app_database.db').build();
+  final personDao = database.personDao;
 
+  final person = Person(1, 'Frank');
+  await personDao.insertPerson(person);
+
+  final result = await personDao.findPersonById(1);
+ // final result = await personDao.findPersonById(1);
   runApp(MyApp());
 }
 

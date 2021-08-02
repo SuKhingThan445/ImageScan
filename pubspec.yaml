@@ -29,6 +29,7 @@ dependencies:
   intl: ^0.16.1
   curved_navigation_bar: ^1.0.1
   lottie: ^0.7.0+1
+  floor: ^0.18.0
 
 
 
@@ -37,7 +38,8 @@ dev_dependencies:
   flutter_launcher_icons: "^0.8.0"
   flutter_test:
     sdk: flutter
-
+  floor_generator: ^0.18.0
+  build_runner: ^1.10.3
 
 flutter_icons:
   android: "launcher_icon"
