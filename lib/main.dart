@@ -26,8 +26,9 @@ Future<void> main() async {
   final person = Person(1, 'Frank');
   await personDao.insertPerson(person);
 
-  final result = await personDao.findPersonById(1);
- // final result = await personDao.findPersonById(1);
+  final result = await personDao.findAllPersons();
+  debugPrint("PersonSelect ${result.length.toString()}");
+
   runApp(MyApp());
 }
 

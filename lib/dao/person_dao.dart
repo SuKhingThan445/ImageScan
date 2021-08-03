@@ -9,6 +9,6 @@ abstract class PersonDao {
   @Query('SELECT * FROM Person WHERE id = :id')
   Stream<Person> findPersonById(int id);
 
-  @insert
+  @Insert(onConflict:OnConflictStrategy.replace)
   Future<void> insertPerson(Person person);
 }
